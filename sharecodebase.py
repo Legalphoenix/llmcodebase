@@ -8,8 +8,10 @@ CODE_EXTENSIONS = {
 }
 SKIP_CONTENT_EXTENSIONS = {
     '.log', '.csv', '.tsv', '.db', '.sqlite', '.bin', '.exe',
-    '.dll', '.so', '.zip', '.tar', '.gz', '.jpg', '.png', '.pdf'
+    '.dll', '.so', '.zip', '.tar', '.gz', '.jpg', '.png', '.pdf',
+    '.lock', 
 }
+
 
 # Folders to ignore completely
 IGNORE_FOLDERS = {
