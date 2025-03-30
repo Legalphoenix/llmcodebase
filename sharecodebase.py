@@ -64,32 +64,47 @@ def collect_code_content(root_dir):
                     contents.append(f"\n\n# FILE: {relpath}\n\n[Error reading file: {e}]")
     return "".join(contents)
 
+def get_unique_filename(base_name="codebase_output.txt"):
+    if not os.path.exists(base_name):
+        return base_name
+
+    base, ext = os.path.splitext(base_name)
+    counter = 1
+    while True:
+        new_name = f"{base}_{counter}{ext}"
+        if not os.path.exists(new_name):
+            return new_name
+        counter += 1
+
+
 def main():
-    if len(sys.argv) != 2:
-        print("Usage: python export_codebase_for_llm.py /path/to/folder")
-        return
+    if len(sys.argv) == 2:
+        folder = sys.argv[1]
+    else:
+        print("👋 Hey! Please drag and drop your project folder here and press Enter:")
+        folder = input("📁 Folder path: ").strip()
 
-    folder = sys.argv[1]
     if not os.path.isdir(folder):
-        print("Invalid folder path.")
+        print("❌ Invalid folder path.")
         return
 
-    output_file = "codebase_output.txt"
+    output_file = get_unique_filename("codebase_output.txt")
 
-    print("Generating folder structure...")
+    print("📂 Generating folder structure...")
     tree = write_folder_tree(folder)
 
-    print("Collecting code files...")
+    print("📄 Collecting code files...")
     code = collect_code_content(folder)
 
-    print("Writing output file...")
+    print("📝 Writing output file...")
     with open(output_file, 'w', encoding='utf-8') as out:
         out.write("# FOLDER STRUCTURE\n")
         out.write("```\n" + tree + "\n```\n")
         out.write("\n\n# CODE FILES\n")
         out.write(code)
 
-    print(f"Done. Output written to {output_file}")
+    print(f"✅ Done. Output written to {output_file}")
+
 
 if __name__ == "__main__":
     main()
