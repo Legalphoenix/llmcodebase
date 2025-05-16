@@ -1,4 +1,4 @@
-Codebase Snapshotter
+Codebase Snapshotter: https://www.loom.com/share/210b5cf9c681466eb534dcf8a084a321?sid=972862d4-c2a8-47b7-9c71-aa2c8fcca06e
 
 Creates a single .txt snapshot (folder structure & code content) of a project. Live monitors and auto-updates the snapshot. Ideal for LLMs or code sharing.
 
