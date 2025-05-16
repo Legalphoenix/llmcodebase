@@ -5,10 +5,11 @@ Creates a single .txt snapshot (folder structure & code content) of a project. L
 Quick Start
 
 Prerequisites:
-1. pip install watchdog
+1. Save the code from sharecodebase.py
+2. Create a venv and pip install watchdog
 
 Run Script in your terminal:
-1. python sharecodebase.py
+1. Python sharecodebase.py
 2. Then drag your project folder to the terminal and press Enter.
 
 
@@ -27,3 +28,5 @@ Customize behavior by editing these sets at the top of the script:
 CODE_EXTENSIONS: File types to include content from.
 SKIP_CONTENT_EXTENSIONS: File types to list in tree but skip content.
 IGNORE_FOLDERS: Folders to completely exclude.
+
+Tip: if you struggle to follow what to do, use ChatGPT to tell you what to do.
